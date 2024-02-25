@@ -58,7 +58,7 @@ type Dot struct {
 
 func randomDot(pop *Population) *Dot {
 	dot := &Dot{Kicks: make([]cp.Vector, 0)}
-	for i := 0; i < pop.exr.IntRange(5, 15); i++ {
+	for i := 0; i < pop.exr.IntRange(30, 50); i++ {
 		dot.Kicks = append(dot.Kicks, RandomVector(pop.exr))
 	}
 	dot.history = make([]cp.Vector, 0)

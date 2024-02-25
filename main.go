@@ -13,7 +13,7 @@ import (
 	"vectorboi/helpers"
 )
 
-const TimeStep = 1 / 60.
+const TimeStep = 1 / 10.
 
 var RequiredFolders = [...]string{
 	"snapshots",

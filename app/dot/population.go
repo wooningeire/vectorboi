@@ -19,12 +19,12 @@ import (
 type Eval func(dot *Dot, population *Population) float64
 
 func CompoundFitness(dot *Dot, pop *Population) float64 {
-	base := dot.body.Position().Distance(pop.Scenario.Target.Center())
+	base := math.Pow(dot.body.Position().Distance(pop.Scenario.Target.Center()), 4)
 	switch dot.Status {
 	case Scored:
-		base -= 100 // inject drugs directly into the dot
+		base -= 1000 // inject drugs directly into the dot
 	case Dead:
-		base += 100 // punish death
+		base += 1000 // punish death
 	}
 	return base + float64(len(dot.Kicks))*5
 }

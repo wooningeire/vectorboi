@@ -59,16 +59,36 @@ var DefaultScenario = Scenario{
 	Height:         defh,
 	Size:           1000,
 	KickTime:       1.2,
-	GenerationTime: 10,
+	GenerationTime: 40,
 	Damping:        0.5,
 	Chances:        DefaultChances,
 	Spawn: cp.Vector{
-		X: defw / 2,
-		Y: defh - defh/10,
+		X: defw * 0.1,
+		Y: defh * 0.1,
 	},
 	Target: cp.NewBBForExtents(cp.Vector{
-		X: defw / 2,
-		Y: defh / 10,
+		X: defw * 0.9,
+		Y: defh * 0.1,
 	}, 10, 10),
-	Walls: make([]structures.KillWall, 0),
+	// Walls: make([]structures.KillWall, 0),
+	Walls: []structures.KillWall{
+		structures.MakeKillWall(
+			defw * 0.2,
+			0,
+			defw * 0.2,
+			defh * 0.5,
+		),
+		structures.MakeKillWall(
+			defw * 0.5,
+			defh,
+			defw * 0.5,
+			defh * 0.5,
+		),
+		structures.MakeKillWall(
+			defw * 0.8,
+			0,
+			defw * 0.8,
+			defh * 0.5,
+		),
+	},
 }
